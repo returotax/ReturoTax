@@ -1,0 +1,53 @@
+import React, { useState } from "react";
+
+export default function ReturotaxSite() { const [step, setStep] = useState(1);
+
+return ( <div className="min-h-screen bg-gray-50 p-4"> <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-6"> <h1 className="text-2xl font-bold mb-4 text-center">Returotax - Recuperare taxe Olanda</h1>
+
+{step === 1 && (
+      <div>
+        <h2 className="text-xl mb-2">Date personale</h2>
+        <input placeholder="Nume complet" className="w-full p-2 border mb-2 rounded" />
+        <input type="date" className="w-full p-2 border mb-2 rounded" />
+        <input placeholder="Telefon" className="w-full p-2 border mb-2 rounded" />
+        <input placeholder="Email" className="w-full p-2 border mb-2 rounded" />
+        <button onClick={() => setStep(2)} className="w-full bg-black text-white p-2 rounded">Continuă</button>
+      </div>
+    )}
+
+    {step === 2 && (
+      <div>
+        <h2 className="text-xl mb-2">Muncă în Olanda</h2>
+        <input placeholder="Perioadă lucrată" className="w-full p-2 border mb-2 rounded" />
+        <input placeholder="Angajator" className="w-full p-2 border mb-2 rounded" />
+        <button onClick={() => setStep(3)} className="w-full bg-black text-white p-2 rounded">Continuă</button>
+      </div>
+    )}
+
+    {step === 3 && (
+      <div>
+        <h2 className="text-xl mb-2">Situație familială</h2>
+        <p>Ai soție?</p>
+        <button className="mr-2">Da</button>
+        <button>Nu</button>
+
+        <p className="mt-4">Ai copii?</p>
+        <button className="mr-2">Da</button>
+        <button>Nu</button>
+
+        <button onClick={() => setStep(4)} className="w-full bg-black text-white p-2 rounded mt-4">Continuă</button>
+      </div>
+    )}
+
+    {step === 4 && (
+      <div>
+        <h2 className="text-xl mb-2">Date bancare</h2>
+        <input placeholder="IBAN" className="w-full p-2 border mb-2 rounded" />
+        <input placeholder="Nume titular" className="w-full p-2 border mb-2 rounded" />
+        <button className="w-full bg-green-600 text-white p-2 rounded">Trimite</button>
+      </div>
+    )}
+  </div>
+</div>
+
+); }
